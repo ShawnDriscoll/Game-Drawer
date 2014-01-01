@@ -5,7 +5,7 @@
 #
 ##########################################################
 
-"""Usage: from dice roll import roll"""
+"""Usage: from diceroll import roll"""
 
 from random import randint
 
