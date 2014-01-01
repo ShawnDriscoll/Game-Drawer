@@ -29,7 +29,7 @@ roll('4D4-4') -- add -4 DM to roll\n\n"""
             if dice[1:3] == '66' and len(dice) == 3:                # D66 rolled?
                 return randint(1,6) * 10 + randint(1,6)             # 11 - 66, no DMs allowed
             if dice[1:3] == '00':                                   # D00 rolled?
-                value = (randint(1,10) - 1) * 10 + randint(1,10)        # 1 - 100
+                value = (randint(1,10) - 1) * 10 + randint(1,10)    # 1 - 100
                 if len(dice) > 3 and (dice[3] == '+' or dice[3] == '-'):        # Is there a +/- DM to apply?
                     if dice[3] == '+':                              # A +DM?
                         value += int(dice[4])
