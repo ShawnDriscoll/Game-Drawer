@@ -26,9 +26,9 @@ roll('4D4-4') -- add -4 DM to roll\n\n"""
     if len(dice) == 3 or (len(dice) == 5) and (dice[3] == '+' or dice[3] == '-'):
         if dice[0] == 'D':                                          # "D" is at beginning of roll string?
             if dice[1:3] == '66' and len(dice) == 3:                # D66 rolled?
-                return randint(1,6) * 10 + randint(1,6)             # 11 - 66, no DMs allowed
+                return randint(1, 6) * 10 + randint(1, 6)           # 11 - 66, no DMs allowed
             if dice[1:3] == '00':                                   # D00 rolled?
-                value = (randint(1,10) - 1) * 10 + randint(1,10)    # 1 - 100
+                value = (randint(1, 10) - 1) * 10 + randint(1, 10)  # 1 - 100
                 if len(dice) > 3 and (dice[3] == '+' or dice[3] == '-'):        # Is there a +/- DM to apply?
                     if dice[3] == '+':                              # A +DM?
                         value += int(dice[4])
@@ -36,7 +36,7 @@ roll('4D4-4') -- add -4 DM to roll\n\n"""
                         value += -(int(dice[4]))
                 return value
             if dice[1:3] == '10':                                   # D10 rolled?
-                value = randint(1,10)                               # 1 - 10
+                value = randint(1, 10)                              # 1 - 10
                 if len(dice) > 3 and (dice[3] == '+' or dice[3] == '-'):        # Is there a +/- DM to apply?
                     if dice[3] == '+':                              # A +DM?
                         value += int(dice[4])
@@ -48,7 +48,7 @@ roll('4D4-4') -- add -4 DM to roll\n\n"""
                 if int(dice[0]) >= 1 and int(dice[0]) <= 9:         # How many dice?
                     value = 0
                     for i in range(int(dice[0])):                   # Roll the number of dice
-                        value += randint(1,int(dice[2]))            # Add this die roll type to the total
+                        value += randint(1, int(dice[2]))           # Add this die roll type to the total
                     if len(dice) > 3 and (dice[3] == '+' or dice[3] == '-'):        # Is there a +/- DM to apply?
                         if dice[3] == '+':                          # A +DM?
                             value += int(dice[4])
