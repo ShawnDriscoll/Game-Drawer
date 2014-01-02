@@ -1,6 +1,5 @@
-Game-Drawer
-===========
-
+Game-Drawer<br>
+===========<br><br>
 Scraps of game code written in Python 2.5.4 and C99 for Windows XP/7.<br><br>
 This has been an exercise for me in learning to use PyCharm and<br>
 GitHub together.<br><br>
