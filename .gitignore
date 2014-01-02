@@ -226,3 +226,5 @@ pip-log.txt
 *.89z
 *.9xz
 *.v2z
+*.o
+*.s
