@@ -22,27 +22,27 @@ int _ti89;
 
 void _main(void)
 {
-	int looping = TRUE;
-	char roll_type[10];
-	int i;
-	
-//	clear the screen
+    int looping = TRUE;
+    char roll_type[10];
+    int i;
+    
+//  clear the screen
     clrscr();
     
-    randomize();													// randomize seed
-	
-	printf ("Roll type [ex 2D6]: ");
-	scanf ("%s", &roll_type);
-	printf ("\n");
-	
-	for (i = 1; i <= 10; i++)
-    	printf("%d\n", roll(roll_type));
+    randomize();        // randomize seed
+    
+    printf ("Roll type [ex 2D6]: ");
+    scanf ("%s", &roll_type);
+    printf ("\n");
+    
+    for (i = 1; i <= 10; i++)
+        printf("%d\n", roll(roll_type));
             
-	while (looping)
-	{
-		ST_showHelp("Programmed by shawndriscoll@hotmail.com");
-		//	wait for a key press before the program exits
-		if (ngetchx () == 13)
-			looping = FALSE;
-	}
+    while (looping)
+    {
+        ST_showHelp("Programmed by shawndriscoll@hotmail.com");
+//  wait for a key press before the program exits
+        if (ngetchx () == 13)
+            looping = FALSE;
+    }
 }
