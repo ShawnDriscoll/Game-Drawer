@@ -7,4 +7,6 @@ This has been an exercise for me in learning to use PyCharm and
 GitHub together.
 
 My plan is to have a folder for each programming language I make
-use of.
+use of.  So far, I have dice rolling programs here.
+
+-Shawn
