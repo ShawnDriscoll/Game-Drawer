@@ -6,17 +6,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#define DICE_HELP "\nroll() is a dice rolling program.\n\n\
-The types of dice to roll are (in string values):\n\
-roll('1D6') -- roll one 6-sided die\n\
-roll('2D6') -- roll two 6-sided dice\n\
-roll('D10') -- roll a 10-sided die\n\
-roll('D00') -- roll a 100-sided die (1 - 100)\n\
-roll('D66') -- roll for a D66 chart\n\n\
--/+ DMs can be added to rolls:\n\
-roll('3D6+6') -- add +6 DM to roll\n\
-roll('4D4-4') -- add -4 DM to roll\n\n"
-
 int die_roll(int die)
 {
 	static int seed = 0;
