@@ -64,17 +64,11 @@ int roll(char dice[10])
 				{
 					if (dice[3] == 43)					// A +DM?
 					{
-					//	printf("+%d DM ", dice[4] - 48);
-					//	printf("%d ", value);
 						value += dice[4] - 48;
-					//	printf("%d ", value);
 					}
 					else								// A -DM?
 					{
-					//	printf("-%d DM ", dice[4] - 48);
-					//	printf("%d ", value);
 						value += -(dice[4] - 48);
-					//	printf("%d ", value);
 					}
 				}
 				return value;
@@ -86,17 +80,27 @@ int roll(char dice[10])
 				{
 					if (dice[3] == 43)					// A +DM?
 					{
-					//	printf("+%d DM ", dice[4] - 48);
-					//	printf("%d ", value);
 						value += dice[4] - 48;
-					//	printf("%d ", value);
 					}
 					else								// A -DM?
 					{
-					//	printf("-%d DM ", dice[4] - 48);
-					//	printf("%d ", value);
 						value += -(dice[4] - 48);
-					//	printf("%d ", value);
+					}
+				}
+				return value;
+			}
+            if (dice[1] == 50 && dice[2] == 48)			// D20 rolled?
+			{
+				value = die_roll(20);					// 1 - 20
+				if (dice[3] == 43 || dice[3] == 45)		// Is there a +/- DM to apply?
+				{
+					if (dice[3] == 43)					// A +DM?
+					{
+						value += dice[4] - 48;
+					}
+					else								// A -DM?
+					{
+						value += -(dice[4] - 48);
 					}
 				}
 				return value;
@@ -115,17 +119,11 @@ int roll(char dice[10])
 					{
 						if (dice[3] == 43)				// A +DM?
 						{
-						//	printf("+%d DM ", dice[4] - 48);
-						//	printf("%d ", value);
 							value += dice[4] - 48;
-						//	printf("%d ", value);
 						}
 						else							// A -DM?
 						{
-						//	printf("-%d DM ", dice[4] - 48);
-						//	printf("%d ", value);
 							value += -(dice[4] - 48);
-						//	printf("%d ", value);
 						}
 					}
 					return value;
