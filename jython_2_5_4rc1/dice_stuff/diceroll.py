@@ -1,5 +1,5 @@
 #
-#   Written for Jython 2.5.4
+#   Written for Jython 2.5.4rc1
 #
 #   To use this module: from diceroll import roll
 #
