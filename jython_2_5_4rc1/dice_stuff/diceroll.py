@@ -43,6 +43,14 @@ roll('4D4-4') -- add -4 DM to roll\n\n"""
                     else:                                           # A -DM?
                         value += -(int(dice[4]))
                 return value
+            if dice[1:3] == '20':                                   # D20 rolled?
+                value = randint(1, 20)                              # 1 - 20
+                if len(dice) > 3 and (dice[3] == '+' or dice[3] == '-'):        # Is there a +/- DM to apply?
+                    if dice[3] == '+':                              # A +DM?
+                        value += int(dice[4])
+                    else:                                           # A -DM?
+                        value += -(int(dice[4]))
+                return value
         else:
             if dice[1] == 'D':                                      # "D" is in middle of roll string?
                 if int(dice[0]) >= 1 and int(dice[0]) <= 9:         # How many dice?
