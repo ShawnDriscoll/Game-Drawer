@@ -1,4 +1,6 @@
 #
+#   Written for Jython 2.5.4rc1
+#
 #   Run this file to call roll()
 #
 

@@ -1,4 +1,6 @@
 #
+#   Written for Python 2.5.4
+#
 #   To use this module: from diceroll import roll
 #
 #   Make a dice roll for calling module
