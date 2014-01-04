@@ -13,6 +13,8 @@
 org.*
 com.*
 .classpath
+*.ini
+*.log
 
 #############
 ## Windows detritus
@@ -65,4 +67,4 @@ develop-eggs/
 ###########
 ## Jython
 ###########
-.class
+*.class
