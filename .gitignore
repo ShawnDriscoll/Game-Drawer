@@ -61,3 +61,8 @@ develop-eggs/
 ## gcc
 ###########
 *.exe
+
+###########
+## Jython
+###########
+.class
