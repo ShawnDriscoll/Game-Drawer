@@ -17,6 +17,7 @@ com.*
 *.log
 /Debug
 /Release
+.cproject
 
 #############
 ## Windows detritus
