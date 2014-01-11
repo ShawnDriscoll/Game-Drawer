@@ -1,11 +1,9 @@
 //
-//  diceroll.h -- Called by diceroll.c
+//	Called by numdice.c
 //
-//  Compile with TI-GCC for execution on a TI-89
-//
-//  Written by Shawn Driscoll
-//  shawndriscoll@hotmail.com
-//
+///////////////////////////////
+
+#include <tigcclib.h>
 
 int die_roll(int die)
 {
@@ -74,13 +72,45 @@ int roll(char dice[10])
                 }
                 return value;
             }
+            if (dice[1] == 51 && dice[2] == 48)             // D30 rolled?
+            {
+                value = die_roll(30);                       // 1 - 30
+                if (dice[3] == 43 || dice[3] == 45)         // Is there a +/- DM to apply?
+                {
+                    if (dice[3] == 43)                      // A +DM?
+                    {
+                        value += dice[4] - 48;
+                    }
+                    else                                    // A -DM?
+                    {
+                        value += -(dice[4] - 48);
+                    }
+                }
+                return value;
+            }
+            if (dice[1] == 49 && dice[2] == 50)             // D12 rolled?
+            {
+                value = die_roll(12);                       // 1 - 12
+                if (dice[3] == 43 || dice[3] == 45)         // Is there a +/- DM to apply?
+                {
+                    if (dice[3] == 43)                      // A +DM?
+                    {
+                        value += dice[4] - 48;
+                    }
+                    else                                    // A -DM?
+                    {
+                        value += -(dice[4] - 48);
+                    }
+                }
+                return value;
+            }
         }
         else
         {
             if (dice[1] == 68)                              // "D" is in middle of roll string?
             {
-                if (dice[0] >= 48 && dice[0] <= 57)         // How many dice?
-                {
+                if (dice[0] >= 49 && dice[0] <= 57 && (dice[2] == 52 || dice[2] == 54 || dice[2] == 56))
+                {                                           // How many dice, and how many sides?
                     value = 0;
                     for (i = 1; i < dice[0] - 47; i++)      // Roll the number of dice
                         value += die_roll(dice[2] - 48);    // Add this die roll type to the total

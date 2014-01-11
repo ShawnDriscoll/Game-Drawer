@@ -1,7 +1,8 @@
 /*************************************************************
 *
 * project name: Dice roll program for various die types
-* file name:    roll.c
+* file names:   numdice.c
+*               c_diceroll.c
 * initial date: 01/2/2014
 * author:       Shawn Driscoll
 * email:        shawndriscoll@hotmail.com
@@ -12,10 +13,10 @@
 **************************************************************/
 
 #include <tigcclib.h>
-#include "diceroll.h"
 
 int _ti92plus;
 int _ti89;
+
 
 // ------------------------------------------------------------
 //  START PROGRAM
