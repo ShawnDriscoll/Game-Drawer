@@ -53,9 +53,27 @@ roll('4D4-4') -- add -4 DM to roll\n\n"""
                     else:                                           # A -DM?
                         value += -(int(dice[4]))
                 return value
+            if dice[1:3] == '30':                                   # D30 rolled?
+                value = randint(1, 30)                              # 1 - 30
+                if len(dice) > 3 and (dice[3] == '+' or dice[3] == '-'):        # Is there a +/- DM to apply?
+                    if dice[3] == '+':                              # A +DM?
+                        value += int(dice[4])
+                    else:                                           # A -DM?
+                        value += -(int(dice[4]))
+                return value
+            if dice[1:3] == '12':                                   # D12 rolled?
+                value = randint(1, 12)                              # 1 - 12
+                if len(dice) > 3 and (dice[3] == '+' or dice[3] == '-'):        # Is there a +/- DM to apply?
+                    if dice[3] == '+':                              # A +DM?
+                        value += int(dice[4])
+                    else:                                           # A -DM?
+                        value += -(int(dice[4]))
+                return value
         else:
             if dice[1] == 'D':                                      # "D" is in middle of roll string?
-                if int(dice[0]) >= 1 and int(dice[0]) <= 9:         # How many dice?
+                if int(dice[0]) >= 1 and int(dice[0]) <= 9 \
+                        and (int(dice[2]) == 4 or int(dice[2]) == 6 \
+                        or int(dice[2]) == 8):                      # How many dice, and how many sides?
                     value = 0
                     for i in range(int(dice[0])):                   # Roll the number of dice
                         value += randint(1, int(dice[2]))           # Add this die roll type to the total

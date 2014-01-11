@@ -1,5 +1,5 @@
 #
-#   Written for Python 2.5.4rc1
+#   Written for Python 2.5.4
 #
 #   Run this file to call roll()
 #
