@@ -44,7 +44,7 @@ Desktop.ini
 *.egg
 *.egg-info
 dist/
-build/
+temp.win32-2.5/
 eggs/
 parts/
 var/
