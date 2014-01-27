@@ -2,6 +2,7 @@
 //  numdice.c -- makes 20 dice rolls
 //  compile with c_diceroll.c using MinGW GCC 4.3.3 at DOS prompt:
 //      gcc numdice.c c_diceroll.c -o numdice.exe
+//
 
 #include <stdio.h>
 
