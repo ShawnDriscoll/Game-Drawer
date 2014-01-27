@@ -4,7 +4,9 @@
 #   Run this file to call roll()
 #
 
-"""Performs 10 dice rolls"""
+"""
+Performs 10 dice rolls
+"""
 
 import dice_stuff.diceroll
 
