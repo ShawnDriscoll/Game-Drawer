@@ -8,13 +8,14 @@
 Performs 10 dice rolls
 """
 
-import dice_stuff.diceroll
+from dice_stuff.diceroll import roll
+from dice_stuff import version
 
 print
-print 'Welcome to', dice_stuff.version.ver
+print 'Welcome to', version.ver
 print
 dice = raw_input("Enter roll type: ")
 print 'Here are your ten', dice, 'rolls:'
 
 for i in range(10):
-    print dice_stuff.diceroll.roll(dice)
+    print roll(dice)

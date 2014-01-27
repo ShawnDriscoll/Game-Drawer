@@ -1,9 +1,8 @@
 
 """
-This program was written using PyCharm 3.0.2 in a
-Windows XP/7 environment.  This code is no longer Beta.
+This program was written using Eclipse with the
+PyDev 3.2 plug-in in a Windows XP/7 environment.
+This code is no longer Beta.
 """
 
 author = 'Shawn Driscoll'
-
-from version import *

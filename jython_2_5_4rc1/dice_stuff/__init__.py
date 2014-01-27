@@ -6,5 +6,3 @@ This code is no longer Beta.
 """
 
 author = 'Shawn Driscoll'
-
-from version import *
