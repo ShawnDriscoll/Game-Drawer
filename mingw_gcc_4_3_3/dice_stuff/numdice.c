@@ -15,7 +15,7 @@ int main(void)
     setvbuf(stderr, NULL, _IONBF, 0);
         
     printf("Type of roll (example: 2D6+3):? ");
-    scanf("%s", &roll_type);
+    gets(roll_type);
     
     for (x = 1; x <= 20; x++)
     {

@@ -3,7 +3,7 @@
 * project name: Dice roll program for various die types
 * file names:   numdice.c
 *               c_diceroll.c
-* initial date: 01/2/2014
+* initial date: 02/05/2014
 * author:       Shawn Driscoll
 * email:        shawndriscoll@hotmail.com
 *
@@ -33,7 +33,7 @@ void _main(void)
     randomize();        // randomize seed
     
     printf ("Roll type [ex 2D6]: ");
-    scanf ("%s", &roll_type);
+    gets(roll_type);
     printf ("\n");
     
     for (i = 1; i <= 10; i++)
