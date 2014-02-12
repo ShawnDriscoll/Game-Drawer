@@ -1,3 +1,6 @@
+
+# Python 2.5.4 code used in video from http://www.youtube.com/watch?v=gTT6TtpDBLk
+
 from diceroll import roll
 
 char_name = ['STR', 'DEX', 'END', 'INT', 'EDU', 'SOC', 'PSI']
