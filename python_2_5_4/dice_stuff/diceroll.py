@@ -13,91 +13,101 @@ Usage: from diceroll import roll
 
 from random import randint
 
+def die_rolls(dtype, dcount):
+    dtotal = 0
+    for i in range(dcount):
+        dtotal += randint(1, dtype)
+    return dtotal
+
 def roll(dice):
     """
-roll() is a dice rolling program.\n\n\
-The types of dice to roll are (in string values):\n\
-roll('1D6') -- roll one 6-sided die\n\
-roll('2D6') -- roll two 6-sided dice\n\
-roll('D10') -- roll a 10-sided die\n\
-roll('D00') -- roll a 100-sided die (1 - 100)\n\
-roll('D66') -- roll for a D66 chart\n\n\
--/+ DMs can be added to rolls:\n\
-roll('3D6+6') -- add +6 DM to roll\n\
-roll('4D4-4') -- add -4 DM to roll\n
-"""
+    roll() is a dice rolling program.\n\n\
+    The types of dice to roll are (in string values):\n\
+    roll('D6') -- roll one 6-sided die\n\
+    roll('1D6') -- roll one 6-sided die\n\
+    roll('2D6') -- roll two 6-sided dice\n\
+    roll('D10') -- roll a 10-sided die\n\
+    roll('D100') -- roll a 100-sided die (1 - 100)\n\
+    roll('D66') -- roll for a D66 chart\n\
+    roll('2DD+3') -- roll (2D6+3) x 10\n\n\
+    -/+ DMs can be added to rolls:\n\
+    roll('3D6+6') -- add +6 DM to roll\n\
+    roll('4D4-4') -- add -4 DM to roll\n
+    """
 
-    dice = str(dice)                                                # Make sure dice is a string and not an integer
-    # is there any modifier added?
-    if len(dice) == 3 or (len(dice) == 5) and (dice[3] == '+' or dice[3] == '-'):
-        if dice[0] == 'D':                                          # "D" is at beginning of roll string?
-            if dice[1:3] == '66' and len(dice) == 3:                # D66 rolled?
-                return randint(1, 6) * 10 + randint(1, 6)           # 11 - 66, no DMs allowed
-            if dice[1:3] == '00':                                   # D00 rolled?
-                value = (randint(1, 10) - 1) * 10 + randint(1, 10)  # 1 - 100
-                if len(dice) > 3 and (dice[3] == '+' or dice[3] == '-'):        # Is there a +/- DM to apply?
-                    if dice[3] == '+':                              # A +DM?
-                        value += int(dice[4])
-                    else:                                           # A -DM?
-                        value += -(int(dice[4]))
-                return value
-            if dice[1:3] == '10':                                   # D10 rolled?
-                value = randint(1, 10)                              # 1 - 10
-                if len(dice) > 3 and (dice[3] == '+' or dice[3] == '-'):        # Is there a +/- DM to apply?
-                    if dice[3] == '+':                              # A +DM?
-                        value += int(dice[4])
-                    else:                                           # A -DM?
-                        value += -(int(dice[4]))
-                return value
-            if dice[1:3] == '20':                                   # D20 rolled?
-                value = randint(1, 20)                              # 1 - 20
-                if len(dice) > 3 and (dice[3] == '+' or dice[3] == '-'):        # Is there a +/- DM to apply?
-                    if dice[3] == '+':                              # A +DM?
-                        value += int(dice[4])
-                    else:                                           # A -DM?
-                        value += -(int(dice[4]))
-                return value
-            if dice[1:3] == '30':                                   # D30 rolled?
-                value = randint(1, 30)                              # 1 - 30
-                if len(dice) > 3 and (dice[3] == '+' or dice[3] == '-'):        # Is there a +/- DM to apply?
-                    if dice[3] == '+':                              # A +DM?
-                        value += int(dice[4])
-                    else:                                           # A -DM?
-                        value += -(int(dice[4]))
-                return value
-            if dice[1:3] == '12':                                   # D12 rolled?
-                value = randint(1, 12)                              # 1 - 12
-                if len(dice) > 3 and (dice[3] == '+' or dice[3] == '-'):        # Is there a +/- DM to apply?
-                    if dice[3] == '+':                              # A +DM?
-                        value += int(dice[4])
-                    else:                                           # A -DM?
-                        value += -(int(dice[4]))
-                return value
+    dice = str(dice).upper().strip()
+    dice_mod = 0
+    
+    ichar1 = dice.find('DD')
+    if ichar1 == -1:
+        ichar1 = dice.find('D')
+    if ichar1 == 0:
+        num_dice = 1
+    else:
+        num_dice = int(dice[0:ichar1])
+#        print 'Number of dice =', num_dice
+    
+    if ichar1 <> -1:
+        ichar2 = dice.find('+')
+        if ichar2 <> -1:
+            dice_mod = int(dice[ichar2:len(dice)])
+#            print 'dice mod =', dice_mod
         else:
-            if dice[1] == 'D':                                      # "D" is in middle of roll string?
-                if int(dice[0]) >= 1 and int(dice[0]) <= 9 \
-                        and (int(dice[2]) == 4 or int(dice[2]) == 6 \
-                        or int(dice[2]) == 8):                      # How many dice, and how many sides?
-                    value = 0
-                    for i in range(int(dice[0])):                   # Roll the number of dice
-                        value += randint(1, int(dice[2]))           # Add this die roll type to the total
-                    if len(dice) > 3 and (dice[3] == '+' or dice[3] == '-'):        # Is there a +/- DM to apply?
-                        if dice[3] == '+':                          # A +DM?
-                            value += int(dice[4])
-                        else:                                       # A -DM?
-                            value += -(int(dice[4]))
-                    return value
+            ichar2 = dice.find('-')
+            if ichar2 <> -1:
+                dice_mod = int(dice[ichar2:len(dice)])
+#                print 'dice mod =', dice_mod
+    
+        if ichar2 <> -1:
+            dice_type = dice[ichar1: ichar2]
+            dice_type = dice_type.rstrip()
+        else:
+            dice_type = dice[ichar1: len(dice)]
+#            print 'dice type =', dice_type, 'Len = ', len(dice_type)
+        
+        if dice_type == 'D6':                                       
+            return die_rolls(6, num_dice) + dice_mod
+        else:
+            if dice_type == 'D66' and num_dice == 1 and dice_mod == 0:
+                return randint(1, 6) * 10 + randint(1, 6)
+            else:
+                if dice_type == 'D100' and num_dice == 1:                                      
+                    return (randint(1, 10) - 1) * 10 + randint(1, 10) + dice_mod      
+                else:
+                    if dice_type == 'D10':                                       
+                        return die_rolls(10, num_dice) + dice_mod
+                    else:                               
+                        if dice_type == 'D20':                                       
+                            return die_rolls(20, num_dice) + dice_mod
+                        else:
+                            if dice_type == 'D30' and num_dice == 1:                                       
+                                return randint(1, 30) + dice_mod
+                            else:
+                                if dice_type == 'D12':                                       
+                                    return die_rolls(12, num_dice) + dice_mod
+                                else:
+                                    if dice_type == 'D8':                                       
+                                        return die_rolls(8, num_dice) + dice_mod
+                                    else:
+                                        if dice_type == 'D4':                                       
+                                            return die_rolls(4, num_dice) + dice_mod
+                                        else:
+                                            if dice_type == 'DD':
+                                                return (die_rolls(6, num_dice) + dice_mod) * 10
+    
     print
     print "** DICE ERROR! '%s' is unknown **" % dice
     print
     print "roll() is a dice rolling program."
     print
     print "The types of dice to roll are (in string values):"
+    print "roll('D6') -- roll one 6-sided die"
     print "roll('1D6') -- roll one 6-sided die"
     print "roll('2D6') -- roll two 6-sided dice"
     print "roll('D10') -- roll a 10-sided die"
-    print "roll('D00') -- roll a 100-sided die (1 - 100)"
+    print "roll('D100') -- roll a 100-sided die (1 - 100)"
     print "roll('D66') -- roll for a D66 chart"
+    print "roll('2DD+3') -- roll (2D6+3) x 10"
     print
     print "-/+ DMs can be added to rolls:"
     print "roll('3D6+6') -- add +6 DM to roll"
