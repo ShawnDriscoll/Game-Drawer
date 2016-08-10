@@ -14,7 +14,7 @@ from dice_stuff import version
 print
 print 'Welcome to', version.ver
 print
-dice = raw_input("Enter roll type: ")
+dice = raw_input("Enter roll type, such as 3D6: ")
 print 'Here are your ten', dice, 'rolls:'
 
 for i in range(10):
