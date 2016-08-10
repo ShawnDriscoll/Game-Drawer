@@ -8,8 +8,8 @@
 Performs 10 dice rolls
 """
 
-from dice_stuff.diceroll import roll
-from dice_stuff import version
+from program.diceroll import roll
+from program import version
 
 print
 print 'Welcome to', version.ver
