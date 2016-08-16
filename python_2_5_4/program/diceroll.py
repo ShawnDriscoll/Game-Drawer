@@ -40,7 +40,7 @@ def roll(dice):
     if dice == 'FLUX':
         return randint(1, 6) - randint(1, 6)
     else:
-        if dice == 'GOOD FLUX':
+        if dice == 'GOODFLUX':
             flux1 = randint(1, 6)
             flux2 = randint(1, 6)
             if flux1 < flux2:
@@ -48,7 +48,7 @@ def roll(dice):
             else:
                 return flux1 - flux2
         else:
-            if dice == 'BAD FLUX':
+            if dice == 'BADFLUX':
                 flux1 = randint(1, 6)
                 flux2 = randint(1, 6)
                 if flux1 > flux2:
