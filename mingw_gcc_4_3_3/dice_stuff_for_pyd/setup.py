@@ -1,5 +1,5 @@
 #
-#   This script will use MinGW GCC 4.3.3 to compile diceroll.c
+#   This script will use MinGW GCC 4.3.3 to compile dicerollModule.c
 #   into diceroll.pyd for importing into Python 2.5.4.
 #
 #   Usage:
@@ -14,6 +14,6 @@
 from distutils.core import setup
 from distutils.core import Extension
 
-module1 = Extension('diceroll', sources = ['diceroll.c'])
+module1 = Extension('diceroll', sources = ['dicerollModule.c'])
 
-setup(name = 'diceroll', version = '1.0.0', ext_modules=[module1])
+setup(name = 'diceroll', version = '2.0.7', ext_modules=[module1])
