@@ -1,3 +1,8 @@
+<a style="text-decoration:none" href="https://github.com/ShawnDriscoll/Game-Drawer/stargazers">
+    <img src="https://img.shields.io/github/stars/ShawnDriscoll/Game-Drawer.svg" alt="Stars" />
+</a>
+<br><br>
+
 Game-Drawer<br>
 ===========<br><br>
 Scraps of game code written in Classic Python 2.5.4 and C99 for Windows XP/7.<br><br>
